@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
+import { useTheme } from 'next-themes';
 import Head from 'next/head';
 import Image from 'next/image';
 
 const Home: NextPage = () => {
+  const { theme, setTheme } = useTheme();
   return (
     <div className="px-8">
       <Head>
@@ -24,10 +26,19 @@ const Home: NextPage = () => {
 
         <p className="my-16 mx-0 text-2xl">
           Get started by editing{' '}
-          <code className="rounded bg-slate-100 p-3 font-mono text-lg">
+          <code className="rounded bg-slate-100 p-3 font-mono text-lg dark:bg-slate-700">
             pages/index.tsx
           </code>
         </p>
+
+        <button
+          className="mt-16 rounded-md bg-black px-4 py-2 font-semibold text-white dark:bg-white dark:text-black"
+          onClick={() => {
+            setTheme(theme === 'light' ? 'dark' : 'light');
+          }}
+        >
+          Change Theme
+        </button>
 
         <div className="flex max-w-3xl flex-wrap items-center justify-center">
           <a href="https://nextjs.org/docs" className="card">
