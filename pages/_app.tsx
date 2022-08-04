@@ -6,7 +6,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import Layout from '../components/Layout';
 config.autoAddCss = false;
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Layout>
@@ -15,5 +15,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   );
 }
-
-export default MyApp;
