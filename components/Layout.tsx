@@ -7,9 +7,9 @@ type DashboardLayoutProps = {
 
 export default function Layout({ children }: DashboardLayoutProps) {
   return (
-    <div>
+    <div className="mx-auto flex h-screen max-w-4xl flex-col py-4">
       <Header />
-      <main className="min-h-screen">{children}</main>
+      <main className="grow">{children}</main>
       <Footer />
     </div>
   );
