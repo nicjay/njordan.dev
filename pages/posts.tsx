@@ -26,7 +26,8 @@ export default function PostsPage({ posts }: { posts: ListPost[] }) {
                 src={post.image}
                 alt={post.title}
                 fill
-                sizes="50vw"
+                sizes="20vw"
+                quality={50}
                 className="rounded-lg object-cover brightness-90 transition group-hover:brightness-50"
                 priority
               />

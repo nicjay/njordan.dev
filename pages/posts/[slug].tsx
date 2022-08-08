@@ -13,7 +13,7 @@ const components = {
         alt={props.alt}
         {...props}
         fill
-        sizes="50vw"
+        sizes="40vw"
         className="object-contain dark:brightness-90"
       />
     </span>
@@ -31,7 +31,7 @@ export default function PostPage({ post }: { post: Post }) {
             src={post.image}
             alt={post.title}
             fill
-            sizes="50vw"
+            sizes="40vw"
             className="object-cover dark:brightness-90"
             priority
           />
