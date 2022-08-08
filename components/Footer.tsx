@@ -5,7 +5,9 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 export default function Footer() {
   return (
     <footer className="flex items-center justify-between">
-      <div className="text-sm">© 2022 Next.js User</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">
+        © 2022 Next.js User
+      </div>
       <nav className="flex gap-1">
         <a
           href="https://github.com"
@@ -15,7 +17,7 @@ export default function Footer() {
         >
           <FontAwesomeIcon
             icon={faGithub}
-            className="p-2 transition hover:scale-110"
+            className="p-2 text-gray-600 transition hover:scale-110 hover:text-black dark:text-gray-400 hover:dark:text-white"
             size="2x"
           />
         </a>
@@ -27,14 +29,14 @@ export default function Footer() {
         >
           <FontAwesomeIcon
             icon={faLinkedinIn}
-            className="p-2 text-blue-500 transition hover:scale-110"
+            className="p-2 text-gray-600 transition hover:scale-110 hover:text-blue-500 dark:text-gray-400 hover:dark:text-blue-500"
             size="2x"
           />
         </a>
         <a href="mailto:test@gmail.com" aria-label="Email">
           <FontAwesomeIcon
             icon={faEnvelope}
-            className="p-2 text-red-400 transition hover:scale-110"
+            className="p-2 text-gray-600 transition hover:scale-110 hover:text-red-500 dark:text-gray-400 hover:dark:text-red-500"
             size="2x"
           />
         </a>

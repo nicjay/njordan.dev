@@ -8,7 +8,7 @@ export default function Header() {
       <Link href="/">
         <a className="group flex items-center gap-4">
           <svg
-            className="h-12 w-12 rounded-lg ring-offset-white transition group-hover:ring-2 dark:fill-white"
+            className="h-11 w-11 rounded-lg transition group-hover:fill-blue-600 dark:fill-white"
             viewBox="0 0 512 512"
           >
             <g transform="translate(0 512) scale(.1 -.1)">
