@@ -9,7 +9,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
   return (
     <div className="mx-auto flex h-screen max-w-3xl flex-col py-4">
       <Header />
-      <main className="grow py-8">{children}</main>
+      <main className="grow py-16">{children}</main>
       <Footer />
     </div>
   );

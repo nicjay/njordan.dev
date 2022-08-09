@@ -3,8 +3,8 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 export type BasePost = {
   title: string;
   description: string;
-  date: string;
-  image: string;
+  publishDate: string;
+  coverImage: string;
 };
 
 export interface Post extends BasePost {

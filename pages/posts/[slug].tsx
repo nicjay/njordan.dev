@@ -14,7 +14,7 @@ const components = {
         {...props}
         fill
         sizes="40vw"
-        className="object-contain dark:brightness-90"
+        className="object-cover dark:brightness-90"
       />
     </span>
   ),
@@ -24,20 +24,12 @@ export default function PostPage({ post }: { post: Post }) {
   return (
     <div>
       <div>
-        <h1>{post.title}</h1>
-        <p className="description">{post.description}</p>
-        <div className="relative h-36 w-full">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            sizes="40vw"
-            className="object-cover dark:brightness-90"
-            priority
-          />
+        <div className="text-slate-600 dark:text-slate-300">
+          {post.publishDate}
         </div>
+        <h1 className="pb-4 text-5xl font-bold">{post.title}</h1>
       </div>
-      <div className="prose max-w-3xl dark:prose-invert">
+      <div className="prose max-w-3xl pt-8 dark:prose-invert">
         <MDXRemote {...post.content} components={components} />
       </div>
     </div>
@@ -60,8 +52,15 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     content: mdxSource,
     title: mdxSource.frontmatter?.title ?? '',
     description: mdxSource.frontmatter?.description ?? '',
-    date: mdxSource.frontmatter?.date ?? '',
-    image: mdxSource.frontmatter?.image ?? '',
+    publishDate: new Date(mdxSource.frontmatter?.date ?? 0).toLocaleDateString(
+      'default',
+      {
+        month: 'long',
+        year: 'numeric',
+        day: 'numeric',
+      }
+    ),
+    coverImage: mdxSource.frontmatter?.image ?? '',
   };
 
   return { props: { post } };
