@@ -14,14 +14,13 @@ export default function PostItem({ post }: { post: BasePost }) {
         src={post.coverImage}
         alt={post.title}
         fill
-        sizes="10vw"
-        quality={50}
+        sizes="20vw"
         className="rounded-lg object-cover brightness-75 transition group-hover:brightness-50"
         priority
       />
-      <div className="absolute p-4 text-white">
-        <div className="">{getLongDate(post.publishDate)}</div>
-        <div className="text-3xl font-bold ">{post.title}</div>
+      <div className="relative p-4 text-slate-100">
+        <div>{getLongDate(post.publishDate)}</div>
+        <div className="text-3xl font-bold drop-shadow-2xl">{post.title}</div>
         <div className="pt-4 opacity-0 transition group-hover:-translate-y-2 group-hover:opacity-100">
           {post.description}
         </div>

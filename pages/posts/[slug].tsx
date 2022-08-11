@@ -9,7 +9,7 @@ const components = {
     <span className="relative inline-block aspect-video w-full">
       <Image
         alt={props.alt}
-        {...props}
+        src={props.src}
         fill
         sizes="40vw"
         className="object-cover dark:brightness-90"

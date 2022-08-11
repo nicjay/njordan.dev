@@ -1,6 +1,8 @@
 import fs from 'fs';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypePrism from 'rehype-prism-plus';
 
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const POSTS_PATH = path.join(process.cwd(), 'posts');
@@ -19,7 +21,7 @@ export async function getMdx(slug: string) {
   return await serialize(source, {
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: []
+      rehypePlugins: [rehypeCodeTitles, rehypePrism]
     },
     parseFrontmatter: true
   });

@@ -15,7 +15,30 @@ Go back [home](/).
 
 This is an example post, with a [link](https://nextjs.org) and a React component:
 
+```tsx:code/myfile.tsx
+//This is a cool function
+export async function getMdx(slug: string) {
+  const source = fs.readFileSync(path.join(POSTS_PATH, slug + '.mdx'), 'utf8');
+
+  return await serialize(source, {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [rehypePrism]
+    },
+    parseFrontmatter: true
+  });
+}
+```
+
 The title and description are pulled from the MDX file and processed using `next-mdx-remote`. Additionally, links are rendered using a custom component passed to `next-mdx-remote`.
+
+```js
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({ div: '#foo' });
+  }
+}
+```
 
 This is an example post, with a [link](https://nextjs.org) and a React component:
 
