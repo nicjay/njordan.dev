@@ -1,8 +1,9 @@
 import Image from 'next/future/image';
 import Link from 'next/link';
-import { ListPost } from '../types/post';
+import { BasePost } from '../types/post';
+import { getLongDate } from '../utils/dateUtils';
 
-export default function PostItem({ post }: { post: ListPost }) {
+export default function PostItem({ post }: { post: BasePost }) {
   return (
     <Link
       as={`/posts/${post.slug}`}
@@ -19,7 +20,7 @@ export default function PostItem({ post }: { post: ListPost }) {
         priority
       />
       <div className="absolute p-4 text-white">
-        <div className="">{post.publishDate}</div>
+        <div className="">{getLongDate(post.publishDate)}</div>
         <div className="text-3xl font-bold ">{post.title}</div>
         <div className="pt-4 opacity-0 transition group-hover:-translate-y-2 group-hover:opacity-100">
           {post.description}

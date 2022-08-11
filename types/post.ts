@@ -5,12 +5,9 @@ export type BasePost = {
   description: string;
   publishDate: string;
   coverImage: string;
+  slug: string;
 };
 
 export interface Post extends BasePost {
   content: MDXRemoteSerializeResult;
-}
-
-export interface ListPost extends BasePost {
-  slug: string;
 }
