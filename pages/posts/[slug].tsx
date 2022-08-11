@@ -17,16 +17,14 @@ const components = {
         className="object-cover dark:brightness-90"
       />
     </span>
-  ),
+  )
 };
 
 export default function PostPage({ post }: { post: Post }) {
   return (
     <div>
       <div>
-        <div className="text-slate-600 dark:text-slate-300">
-          {post.publishDate}
-        </div>
+        <div className="text-slate-600 dark:text-slate-300">{post.publishDate}</div>
         <h1 className="pb-4 text-5xl font-bold">{post.title}</h1>
       </div>
       <div className="prose max-w-3xl pt-8 dark:prose-invert">
@@ -43,24 +41,21 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   const mdxSource = await serialize(source, {
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: []
     },
-    parseFrontmatter: true,
+    parseFrontmatter: true
   });
 
   const post: Post = {
     content: mdxSource,
     title: mdxSource.frontmatter?.title ?? '',
     description: mdxSource.frontmatter?.description ?? '',
-    publishDate: new Date(mdxSource.frontmatter?.date ?? 0).toLocaleDateString(
-      'default',
-      {
-        month: 'long',
-        year: 'numeric',
-        day: 'numeric',
-      }
-    ),
-    coverImage: mdxSource.frontmatter?.image ?? '',
+    publishDate: new Date(mdxSource.frontmatter?.date ?? 0).toLocaleDateString('default', {
+      month: 'long',
+      year: 'numeric',
+      day: 'numeric'
+    }),
+    coverImage: mdxSource.frontmatter?.image ?? ''
   };
 
   return { props: { post } };
@@ -75,6 +70,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 }

@@ -1,9 +1,9 @@
-import { useTheme } from 'next-themes';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
-const ThemeSwitch = () => {
+export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -13,7 +13,7 @@ const ThemeSwitch = () => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="h-9 w-9 rounded-full bg-gray-200 ring-gray-300 transition hover:ring-2 dark:bg-gray-600"
+      className="h-8 w-8 rounded-full bg-slate-200 ring-slate-300 transition hover:ring-2 dark:bg-slate-800"
       onClick={() => {
         setTheme(theme === 'light' ? 'dark' : 'light');
       }}
@@ -21,22 +21,12 @@ const ThemeSwitch = () => {
       {mounted && (
         <>
           {theme === 'light' ? (
-            <FontAwesomeIcon
-              icon={faMoon}
-              size="lg"
-              className="text-purple-900"
-            />
+            <FontAwesomeIcon icon={faMoon} size="lg" className="text-purple-700" />
           ) : (
-            <FontAwesomeIcon
-              icon={faSun}
-              size="lg"
-              className="text-orange-400"
-            />
+            <FontAwesomeIcon icon={faSun} size="lg" className="text-orange-400" />
           )}
         </>
       )}
     </button>
   );
-};
-
-export default ThemeSwitch;
+}

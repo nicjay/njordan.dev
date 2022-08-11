@@ -12,10 +12,7 @@ const Home: NextPage = () => {
       <div className="flex flex-1 flex-col items-center justify-center py-16">
         <h1 className="text-6xl">
           Welcome to{' '}
-          <a
-            href="https://nextjs.org"
-            className="text-blue-600 hover:underline"
-          >
+          <a href="https://nextjs.org" className="text-blue-600 hover:underline">
             Next.js!
           </a>
         </h1>
@@ -38,10 +35,7 @@ const Home: NextPage = () => {
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="card"
-          >
+          <a href="https://github.com/vercel/next.js/tree/canary/examples" className="card">
             <h2>Examples &rarr;</h2>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </a>
@@ -51,9 +45,7 @@ const Home: NextPage = () => {
             className="card"
           >
             <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
           </a>
         </div>
       </div>
