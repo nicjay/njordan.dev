@@ -1,5 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote';
 import Image from 'next/future/image';
+import ScrollTop from '../../components/ScrollTop';
 import { Post } from '../../types/post';
 import { getLongDate } from '../../utils/dateUtils';
 import { getMdx, postFileSlugs } from '../../utils/mdxUtils';
@@ -28,6 +29,7 @@ export default function PostPage({ post }: { post: Post }) {
       <div className="prose max-w-3xl pt-8 dark:prose-invert">
         <MDXRemote {...post.content} components={components} />
       </div>
+      <ScrollTop />
     </div>
   );
 }
