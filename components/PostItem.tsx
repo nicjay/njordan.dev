@@ -17,7 +17,7 @@ export default function PostItem({ post }: { post: BasePost }) {
         alt={post.title}
         fill
         sizes="20vw"
-        className={`group-hover:brightness-50" rounded-lg border border-neutral-500 object-cover brightness-75 transition ${
+        className={`rounded-lg border border-neutral-500 object-cover brightness-75 transition group-hover:brightness-50 ${
           isLoading ? 'blur-sm' : 'blur-0'
         }`}
         onLoadingComplete={() => setLoading(false)}
