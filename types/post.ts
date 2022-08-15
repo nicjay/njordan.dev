@@ -6,6 +6,7 @@ export type BasePost = {
   publishDate: string;
   coverImage: string;
   slug: string;
+  coverPlaceholder?: string;
 };
 
 export interface Post extends BasePost {

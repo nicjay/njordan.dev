@@ -30,7 +30,7 @@ export default function Header() {
           </g>
         </svg>
         <div className="text-lg font-semibold text-slate-900 group-hover:text-purple-700 dark:text-slate-50 dark:group-hover:text-orange-400">
-          Next.js User
+          Nicholas Jordan
         </div>
       </Link>
       <nav className="flex items-center gap-3">

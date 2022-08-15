@@ -1,3 +1,4 @@
+import { getPlaiceholder } from 'plaiceholder';
 import PostItem from '../components/PostItem';
 import { BasePost } from '../types/post';
 import { getMdxFrontmatter, postFileSlugs } from '../utils/mdxUtils';
@@ -23,12 +24,15 @@ export async function getStaticProps() {
     postFileSlugs.map(async (slug) => {
       const mdxFrontmatter = await getMdxFrontmatter(slug);
 
+      const { base64 } = await getPlaiceholder(mdxFrontmatter?.image ?? '');
+
       const post: BasePost = {
         slug: slug,
         title: mdxFrontmatter?.title ?? '',
         description: mdxFrontmatter?.description ?? '',
         publishDate: mdxFrontmatter?.date ?? '',
-        coverImage: mdxFrontmatter?.image ?? ''
+        coverImage: mdxFrontmatter?.image ?? '',
+        coverPlaceholder: base64
       };
 
       return post;

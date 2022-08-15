@@ -1,15 +1,17 @@
+const { withPlaiceholder } = require('@plaiceholder/next');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   experimental: {
     images: {
-      allowFutureImage: true,
+      allowFutureImage: true
     },
     newNextLinkBehavior: true,
     browsersListForSwc: true,
-    legacyBrowsers: false,
-  },
+    legacyBrowsers: false
+  }
 };
 
-module.exports = nextConfig;
+module.exports = withPlaiceholder(nextConfig);
