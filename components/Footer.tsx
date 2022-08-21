@@ -1,4 +1,4 @@
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -10,22 +10,25 @@ export default function Footer() {
         <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
           <FontAwesomeIcon
             icon={faGithub}
-            className="p-2 text-gray-600 transition hover:scale-110 hover:text-black dark:text-gray-400 hover:dark:text-white"
-            size="2x"
+            className="p-2 text-2xl text-gray-600 transition hover:text-black dark:text-gray-400 hover:dark:text-white"
           />
         </a>
         <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <FontAwesomeIcon
             icon={faLinkedinIn}
-            className="p-2 text-gray-600 transition hover:scale-110 hover:text-blue-500 dark:text-gray-400 hover:dark:text-blue-500"
-            size="2x"
+            className="p-2 text-2xl text-gray-600 transition hover:text-blue-600 dark:text-gray-400 hover:dark:text-blue-600"
           />
         </a>
         <a href="mailto:test@gmail.com" aria-label="Email">
           <FontAwesomeIcon
             icon={faEnvelope}
-            className="p-2 text-gray-600 transition hover:scale-110 hover:text-red-500 dark:text-gray-400 hover:dark:text-red-500"
-            size="2x"
+            className="p-2 text-2xl text-gray-600 transition hover:text-red-500 dark:text-gray-400 hover:dark:text-red-500"
+          />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
+          <FontAwesomeIcon
+            icon={faTwitter}
+            className="p-2 text-2xl text-gray-600 transition hover:text-blue-400 dark:text-gray-400 hover:dark:text-blue-400"
           />
         </a>
       </nav>
