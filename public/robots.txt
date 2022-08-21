@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://njordan.dev/sitemap.xml

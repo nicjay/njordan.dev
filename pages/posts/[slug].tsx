@@ -1,5 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote';
 import LazyImage from '../../components/LazyImage';
+import Meta from '../../components/Meta';
 import ScrollTop from '../../components/ScrollTop';
 import { Post } from '../../types/post';
 import { getLongDate } from '../../utils/dateUtils';
@@ -12,6 +13,12 @@ const components = {
 export default function PostPage({ post }: { post: Post }) {
   return (
     <div>
+      <Meta
+        title={post.title + ' | Nick Jordan'}
+        description={post.description}
+        date={new Date(post.publishDate).toISOString()}
+        type="article"
+      />
       <div>
         <div className="font-semibold">{getLongDate(post.publishDate)}</div>
         <h1 className="pb-4 text-5xl font-bold">{post.title}</h1>
