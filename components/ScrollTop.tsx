@@ -27,7 +27,7 @@ export default function ScrollTop() {
         className="h-8 w-8 rounded-full bg-slate-200 ring-slate-300 transition hover:ring-2 dark:bg-slate-800"
         onClick={handleScrollTop}
       >
-        <FontAwesomeIcon icon={faArrowUp} size="lg" />
+        <FontAwesomeIcon icon={faArrowUp} className="align-middle text-lg" />
       </button>
     </div>
   );

@@ -3,35 +3,22 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url(/fonts/IBMPlexSansVar-Roman.woff2) format('woff2');
+  }
+
   html {
     scrollbar-gutter: stable;
-  }
-}
-
-@layer components {
-  .card {
-    @apply m-4 max-w-xs 
-    rounded-lg border border-solid border-gray-300 p-6
-    text-left text-inherit no-underline
-    transition-colors duration-150 ease-in hover:border-blue-500 hover:text-blue-500;
-  }
-
-  .card h2 {
-    @apply mb-4 text-2xl;
-  }
-
-  .card p {
-    @apply m-0 text-xl;
   }
 }
 
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px black;
-  }
-
-  .text-shadow-sm {
-    text-shadow: 1px 1px 2px black;
   }
 }
 

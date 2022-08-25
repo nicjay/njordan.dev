@@ -21,9 +21,9 @@ export default function ThemeSwitch() {
       {mounted && (
         <>
           {theme === 'light' ? (
-            <FontAwesomeIcon icon={faMoon} size="lg" className="text-purple-700" />
+            <FontAwesomeIcon icon={faMoon} className="align-middle text-lg text-slate-500" />
           ) : (
-            <FontAwesomeIcon icon={faSun} size="lg" className="text-orange-400" />
+            <FontAwesomeIcon icon={faSun} className="align-middle text-lg text-orange-400" />
           )}
         </>
       )}
