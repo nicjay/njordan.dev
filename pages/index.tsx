@@ -1,52 +1,79 @@
-import type { NextPage } from 'next';
+import { InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
+import { getPlaiceholder } from 'plaiceholder';
 import Meta from '../components/Meta';
+import PostItem from '../components/PostItem';
+import { BasePost } from '../types/post';
+import { getMdxFrontmatter, postFileSlugs } from '../utils/mdxUtils';
 
-const Home: NextPage = () => {
+export default function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="px-8">
+    <div className="flex flex-col gap-16 pt-32 sm:gap-32">
       <Meta />
-      <div className="flex flex-1 flex-col items-center justify-center py-16">
-        <h1 className="text-6xl">
-          Welcome to{' '}
-          <a href="https://nextjs.org" className="text-blue-600 hover:underline">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="my-16 mx-0 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded bg-slate-200 p-3 font-mono text-lg dark:bg-slate-700">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-center">
-          <a href="https://nextjs.org/docs" className="card">
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/canary/examples" className="card">
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
+      <div>
+        <h1 className="py-4 text-4xl font-bold">
+          Greetings, I'm{' '}
+          <Link
+            href="/about"
+            className="text-emerald-700 transition duration-500 hover:underline dark:text-orange-400"
           >
-            <h2>Deploy &rarr;</h2>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
+            Nick.
+          </Link>
+        </h1>
+        <ul className="space-y-2 text-lg font-medium">
+          <li>📱 Frontend Developer</li>
+          <li>🖥️ Backend Developer</li>
+          <li>🌐 Self-Hoster</li>
+          <li>🌮 Taco Enjoyer</li>
+        </ul>
+      </div>
+      <div>
+        <h2 className="py-4 text-2xl font-bold">Words</h2>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+          {posts.map((post: BasePost) => (
+            <PostItem key={post.slug} post={post} />
+          ))}
+        </div>
+        <div className="flex justify-end">
+          <Link
+            href="/posts"
+            className="py-4 text-2xl font-bold text-emerald-700 transition duration-500 hover:underline dark:text-orange-400"
+          >
+            More {'>'}
+          </Link>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default Home;
+export async function getStaticProps() {
+  let posts = await Promise.all(
+    postFileSlugs.map(async (slug) => {
+      const mdxFrontmatter = await getMdxFrontmatter(slug);
+
+      const { base64 } = await getPlaiceholder(mdxFrontmatter?.image ?? '');
+
+      const post: BasePost = {
+        slug: slug,
+        title: mdxFrontmatter?.title ?? '',
+        description: mdxFrontmatter?.description ?? '',
+        publishDate: mdxFrontmatter?.date ?? '',
+        coverImage: mdxFrontmatter?.image ?? '',
+        coverPlaceholder: base64
+      };
+
+      return post;
+    })
+  );
+
+  // Sort newest posts first
+  posts.sort(
+    (a, b) => new Date(b.publishDate ?? 0).getTime() - new Date(a.publishDate ?? 0).getTime()
+  );
+
+  // Show N number of posts
+  posts = posts.slice(0, 4);
+
+  return { props: { posts } };
+}

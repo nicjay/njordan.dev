@@ -21,9 +21,11 @@ export default function PostPage({ post }: { post: Post }) {
       />
       <div>
         <div className="font-semibold">{getLongDate(post.publishDate)}</div>
-        <h1 className="pb-4 text-5xl font-bold">{post.title}</h1>
+        <h1 className="py-4 text-5xl font-bold text-emerald-700 dark:text-orange-400">
+          {post.title}
+        </h1>
       </div>
-      <div className="prose max-w-3xl pt-8 prose-img:m-0 dark:prose-invert">
+      <div className="prose max-w-3xl pt-8 prose-headings:text-emerald-700 prose-img:m-0 dark:prose-invert dark:prose-headings:text-orange-400">
         <MDXRemote {...post.content} components={components} />
       </div>
       <ScrollTop />
