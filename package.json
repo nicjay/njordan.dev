@@ -23,7 +23,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@plaiceholder/next": "^2.5.0",
     "@tailwindcss/typography": "^0.5.7",
-    "@types/node": "18.7.16",
+    "@types/node": "18.8.3",
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.9",
