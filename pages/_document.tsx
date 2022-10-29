@@ -4,13 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          rel="preload"
-          href="/fonts/IBMPlexSansVar-Roman.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         <link href="/favicon.ico" rel="icon" sizes="any" />
         <link href="/site.webmanifest" rel="manifest" />
         <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
