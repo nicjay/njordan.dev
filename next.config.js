@@ -2,10 +2,8 @@ const { withPlaiceholder } = require('@plaiceholder/next');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  swcMinify: true,
   reactStrictMode: true,
   experimental: {
-    newNextLinkBehavior: true,
     browsersListForSwc: true,
     legacyBrowsers: false
   },
