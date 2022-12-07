@@ -11,6 +11,7 @@ export default function PostsPage({ posts }: InferGetStaticPropsType<typeof getS
     <div>
       <Meta title="Posts | Nick Jordan" description="My Posts" />
       <h1 className="text-3xl">Not a Blog</h1>
+      <p className="py-4 text-3xl">🚧🚧🚧</p>
       <div className="flex flex-col gap-4 py-4">
         {posts.map((post: BasePost) => (
           <Link

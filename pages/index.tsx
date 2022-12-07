@@ -2,7 +2,6 @@ import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import { getPlaiceholder } from 'plaiceholder';
 import Meta from '../components/Meta';
-import PostItem from '../components/PostItem';
 import { BasePost } from '../types/post';
 import { getMdxFrontmatter, postFileSlugs } from '../utils/mdxUtils';
 
@@ -27,7 +26,7 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
           <li>🌮 Taco Enjoyer</li>
         </ul>
       </div>
-      <div>
+      {/* <div>
         <h2 className="py-4 text-2xl font-bold">Words</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
           {posts.map((post: BasePost) => (
@@ -42,7 +41,7 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
             More {'>'}
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
