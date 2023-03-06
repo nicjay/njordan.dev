@@ -34,7 +34,7 @@
     "plaiceholder": "^2.5.0",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.3",
+    "prettier-plugin-tailwindcss": "^0.2.4",
     "rehype-code-titles": "^1.2.0",
     "rehype-prism-plus": "^1.5.1",
     "sharp": "^0.31.3",
