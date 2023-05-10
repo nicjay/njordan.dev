@@ -34,7 +34,8 @@ export async function getMdx(slug: string) {
 
   const processedSource = await addBlurDataAttributes(source);
 
-  return await serialize(processedSource, {
+  //TODO: Don't use 'any' type for frontmatter
+  return await serialize<Record<string, unknown>, any>(processedSource, {
     mdxOptions: {
       remarkPlugins: [],
       rehypePlugins: [rehypeCodeTitles, rehypePrism]
@@ -46,9 +47,10 @@ export async function getMdx(slug: string) {
 export async function getMdxFrontmatter(slug: string) {
   const source = fs.readFileSync(path.join(POSTS_PATH, slug + '.mdx'), 'utf8');
 
-  const result = await serialize(source, {
+  //TODO: Don't use 'any' type for frontmatter
+  const { frontmatter } = await serialize<Record<string, unknown>, any>(source, {
     parseFrontmatter: true
   });
 
-  return result.frontmatter;
+  return frontmatter;
 }
